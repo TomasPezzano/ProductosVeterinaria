@@ -15,21 +15,9 @@ import productosVeterinaria.dominio.Veterinaria;
 
 public class Test {
 
+
 	@org.junit.Test
 	public void queSeCreeUnaProovedorYSeAgregueAProvincia() {
-		Integer codigoProvincia = 21;
-		String nombreProvincia = "La Rioja";
-		Double valorImpuesto = 20.0;
-		Long cuitProovedor = 20438613693l;
-		String razonSocialProovedor = "Proovedor SA";
-		String domicilioProovedor = "Kiernan 222";
-		
-
-		Proovedor proovedor1 = new Proovedor();
-	}
-
-	@org.junit.Test
-	public void queSePuedaCrearUnProducto() {
 		
 		Integer codigoProvincia = 21;
 		String nombreProvincia = "La Rioja";
@@ -37,6 +25,7 @@ public class Test {
 		Long cuitProovedor = 20438613693l;
 		String razonSocialProovedor = "Proovedor SA";
 		String domicilioProovedor = "Kiernan 222";
+		
 
 		Provincia nuevaProvincia = new Provincia(codigoProvincia, nombreProvincia,valorImpuesto);
 		Proovedor proovedor1 = new Proovedor(cuitProovedor, razonSocialProovedor, domicilioProovedor);
@@ -93,7 +82,7 @@ public class Test {
 
 		
 	public void queSeCreeUnPerro() {
-		Perro perro = new Perro();
+		Perro perro = new Perro(null, null, null, null, null);
 	}
 
 	@org.junit.Test

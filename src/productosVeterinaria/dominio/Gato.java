@@ -8,5 +8,7 @@ public class Gato extends Producto {
 	private LocalDate antiguedad;
 
 	
-	//antiguedad
+	public Gato (String nombre, Double precio, Integer codigo, Mordida tipoMordida, LocalDate fechaDeVencimiento ) {
+		super(nombre, precio, codigo, tipoMordida, fechaDeVencimiento);
+	}
 }
