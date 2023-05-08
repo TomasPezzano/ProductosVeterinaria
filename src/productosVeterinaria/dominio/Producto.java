@@ -7,14 +7,14 @@ public class Producto {
 	private String nombre;
 	private Double precio;
 	private Integer codigo;
-	//private Mordida tipoMordida;
+	private Mordida tipoMordida;
 	private LocalDate fechaDeVencimiento;
 	
-	public Producto(String nombre, Double precio, Integer codigo, LocalDate fechaDeVencimiento){
+	public Producto(String nombre, Double precio, Integer codigo, Mordida tipoMordida, LocalDate fechaDeVencimiento){
 		this.nombre = nombre;
 		this.precio = precio;
 		this.codigo = codigo;
-		//this.tipoMordida = tipoMordida;
+		this.tipoMordida = tipoMordida;
 		this.fechaDeVencimiento = fechaDeVencimiento;
 		
 	}
@@ -43,13 +43,13 @@ public class Producto {
 		this.codigo = codigo;
 	}
 
-	/*public Mordida getTipoMordida() {
+	public Mordida getTipoMordida() {
 		return tipoMordida;
 	}
 
 	public void setTipoMordida(Mordida tipoMordida) {
 		this.tipoMordida = tipoMordida;
-	}*/
+	}
 
 	public LocalDate getFechaDeVencimiento() {
 		return fechaDeVencimiento;
