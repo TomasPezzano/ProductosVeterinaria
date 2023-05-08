@@ -1,5 +1,5 @@
 package productosVeterinaria.dominio;
 
-public class Gato {
+public class Telefono {
 
 }
