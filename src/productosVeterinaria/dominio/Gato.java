@@ -6,14 +6,7 @@ public class Gato extends Producto {
 
 	private LocalDate fechaElaboracion;
 	private LocalDate antiguedad;
-	
-	
-	
+
 	
 	//antiguedad
-	
-
-  
-
-	
 }
