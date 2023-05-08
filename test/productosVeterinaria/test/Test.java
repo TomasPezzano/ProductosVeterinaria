@@ -11,4 +11,7 @@ public class Test {
 		Gato gato = new Gato();
 	}
 
+	public void queSePuedaCrearUnProducto() {
+		Producto producto = new Producto();
+	}
 }
