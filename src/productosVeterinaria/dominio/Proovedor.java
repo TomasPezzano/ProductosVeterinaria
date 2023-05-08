@@ -1,6 +1,7 @@
 package productosVeterinaria.dominio;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 public class Proovedor {
 	private Long cuit;
@@ -49,6 +50,31 @@ public class Proovedor {
 
 	public void setListaDeTelefonos(HashSet<Telefono> listaDeTelefonos) {
 		this.listaDeTelefonos = listaDeTelefonos;
+	}
+	
+	public Boolean validarCuit() {
+		Integer cuitAValidar = this.cuit.toString().length();
+		if(cuitAValidar == 11) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cuit);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Proovedor other = (Proovedor) obj;
+		return Objects.equals(cuit, other.cuit);
 	}
 	
 	
