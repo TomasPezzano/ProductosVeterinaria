@@ -2,7 +2,7 @@ package productosVeterinaria.test;
 
 import static org.junit.Assert.*;
 
-
+import productosVeterinaria.dominio.Producto;
 import productosVeterinaria.dominio.Proovedor;
 
 public class Test {
@@ -15,6 +15,10 @@ public class Test {
 			
 		
 	}
-	
-	
+
+
+	public void queSePuedaCrearUnProducto() {
+		
+	}
+
 }
