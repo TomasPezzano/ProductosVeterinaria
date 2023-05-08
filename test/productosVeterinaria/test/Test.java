@@ -12,11 +12,9 @@ public class Test {
 		Long cuitProovedor = 20438613693l;
 		
 		Proovedor proovedor1 = new Proovedor();
-			
-		
 	}
 
-
+	@org.junit.Test
 	public void queSePuedaCrearUnProducto() {
 		
 	}
