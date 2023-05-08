@@ -13,8 +13,8 @@ public class Test {
 	}
 	
 		
-	public void test() {
-		
+	public void queSeCreeUnPerro() {
+		Perro perro = new Perro();
 	}
 
 }

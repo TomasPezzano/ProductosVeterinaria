@@ -1,6 +1,6 @@
 package productosVeterinaria.dominio;
 
-public class Gato {
+public class Gato extends Producto {
 
 	public Gato() {
 		
