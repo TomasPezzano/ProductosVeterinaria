@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import static org.junit.Test.*;
 
 import productosVeterinaria.dominio.Gato;
+import productosVeterinaria.dominio.Perro;
 
 public class Test {
 
