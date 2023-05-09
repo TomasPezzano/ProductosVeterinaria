@@ -20,6 +20,10 @@ public class Producto {
 
 		
 	}
+	
+	public Producto() {
+		
+	}
 
 	public String getNombre() {
 		return nombre;

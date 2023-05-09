@@ -45,7 +45,9 @@ public class PaisDeProcedencia {
 	}
 	
 	public void agregarProvincia(Provincia provincia) {
-		provincias.add(provincia);
+		if(provincia.validarCodigoProvincia()) {
+			provincias.add(provincia);
+		}
 	}
 	
 	

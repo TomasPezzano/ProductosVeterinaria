@@ -45,7 +45,10 @@ public class Provincia {
 	}
 	
 	public void agregarProovedores(Proovedor proovedor) {
-		this.listaDeProovedores.add(proovedor);
+		
+		if(proovedor.validarCuit()) {
+			this.listaDeProovedores.add(proovedor);
+		}
 	}
 
 	public HashSet<Proovedor> getListaDeProovedores() {
