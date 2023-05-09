@@ -3,6 +3,7 @@ package productosVeterinaria.test;
 import static org.junit.Assert.*;
 import static org.junit.Test.*;
 
+import java.time.LocalDate;
 
 import productosVeterinaria.dominio.Producto;
 import productosVeterinaria.dominio.Gato;
@@ -15,7 +16,8 @@ import productosVeterinaria.dominio.Veterinaria;
 
 public class Test {
 
-
+	// Test Proveedor 
+	
 	@org.junit.Test
 	public void queSeCreeUnaProovedorYSeAgregueAProvincia() {
 		
@@ -105,6 +107,64 @@ public class Test {
 		Componente componente1 = new Componente(pais,f_vencimiento,analizado,cod_componente,descripcion);
 			
 	}
+	
+	//Test Producto
+	
+	@org.junit.Test
+	public void queSePuedaCrearUnProducto() {
+		Veterinaria vet = new Veterinaria();
+		
+		//Atributos Mordida
+		
+		Integer id_mordida = 1;
+		String mordida_tipo = "grande";
+		
+		//Atributos Producto
+		String nombreProducto = "Rosario Come Gatos";
+		Double precioProducto = 1000.0;
+		Integer codigoProducto = 00001;
+		LocalDate fechaDeVencimientoProducto = LocalDate.of(2001, 9, 11);
+		
+		//Creación Mordida y Producto
+		
+		Mordida mordida = new Mordida(id_mordida,mordida_tipo);
+		Producto comeGatosRosarino = new Producto(nombreProducto, precioProducto, codigoProducto, mordida, fechaDeVencimientoProducto);
+	
+		vet.agregarProducto(comeGatosRosarino);
+		
+		assertEquals(1, vet.getProductos().size());
+	}
+	
+	@org.junit.Test
+	public void queNoSePuedanCrearDosProductosConElMismoCodigoEnVeterinaria() {
+		
+		Veterinaria vet1 = new Veterinaria();
+		
+		//Atributos Producto
+		String nombreProducto = "Rosario Come Gatos";
+		String nombreProducto2 = "Perrito Malvado";
+		Double precioProducto = 1000.0;
+		Double precioProducto2 = 1200.0;
+		Integer codigoProducto = 00001;
+		Integer codigoProducto2 = 00001;
+		LocalDate fechaDeVencimientoProducto = LocalDate.of(2025, 9, 11);
+		LocalDate fechaDeVencimientoProducto2 = LocalDate.of(2026, 9, 11);
+		
+		//Creación Mordida y Producto
+		
+		Mordida mordida = new Mordida(1,"mediana");
+		Mordida mordida2 = new Mordida(2,"grande");
+		
+		Producto comeGatosRosarino = new Producto(nombreProducto, precioProducto, codigoProducto, mordida, fechaDeVencimientoProducto);
+		Producto perritoMalvado = new Producto(nombreProducto2, precioProducto2, codigoProducto2, mordida2, fechaDeVencimientoProducto2);
+	
+		vet1.agregarProducto(comeGatosRosarino);
+		vet1.agregarProducto(perritoMalvado);
+		
+		assertEquals(1, vet1.getProductos().size());
+	}
+
+	
 	
 
 }

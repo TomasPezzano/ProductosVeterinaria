@@ -11,11 +11,13 @@ public class Producto {
 	private LocalDate fechaDeVencimiento;
 	
 	public Producto(String nombre, Double precio, Integer codigo, Mordida tipoMordida, LocalDate fechaDeVencimiento){
+		
 		this.nombre = nombre;
 		this.precio = precio;
 		this.codigo = codigo;
 		this.tipoMordida = tipoMordida;
 		this.fechaDeVencimiento = fechaDeVencimiento;
+
 		
 	}
 
