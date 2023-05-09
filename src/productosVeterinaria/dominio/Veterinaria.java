@@ -35,8 +35,16 @@ public class Veterinaria {
 		this.productos = productos;
 	}
 
-	public void agregarProducto(Producto producto) {
-		productos.add(producto);
+	public boolean agregarProducto(Producto producto) {
+		if(producto.estaVencido()) {
+			
+			
+			return false;
+		} else {
+			productos.add(producto);
+			return true;
+		}
+		
 	}
 
 	

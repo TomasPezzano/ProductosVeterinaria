@@ -1,6 +1,7 @@
 package productosVeterinaria.dominio;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Producto {
 	
@@ -64,6 +65,38 @@ public class Producto {
 	public void setFechaDeVencimiento(LocalDate fechaDeVencimiento) {
 		this.fechaDeVencimiento = fechaDeVencimiento;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(codigo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		return Objects.equals(codigo, other.codigo);
+	}
+	
+	public Boolean estaVencido() {
+		LocalDate fechaActual = LocalDate.now();
+		if(this.fechaDeVencimiento.isBefore(fechaActual)) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 }
