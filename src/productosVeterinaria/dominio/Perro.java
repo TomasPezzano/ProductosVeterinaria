@@ -33,9 +33,8 @@ public class Perro extends Producto{
 	}
 	
 	public void validarMordida() {
-		Raza raza = getRaza();
 		
-		switch (raza) {
+		switch (this.raza) {
 		
 		case GRANDE:
 			

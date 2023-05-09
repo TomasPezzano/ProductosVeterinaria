@@ -39,7 +39,7 @@ public class Test {
 		
 		nuevaProvincia.agregarProovedores(proovedor1);
 		
-		assertEquals(nuevaProvincia.getListaDeProovedores().size(), 1);
+		assertEquals(1, nuevaProvincia.getListaDeProovedores().size());
 	}
 	
 	@org.junit.Test
