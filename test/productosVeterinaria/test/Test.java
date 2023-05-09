@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 import static org.junit.Test.*;
 
 
+import productosVeterinaria.dominio.Producto;
 import productosVeterinaria.dominio.Gato;
 import productosVeterinaria.dominio.Perro;
-
 import productosVeterinaria.dominio.Componente;
 import productosVeterinaria.dominio.Mordida;
 import productosVeterinaria.dominio.Proovedor;
@@ -15,8 +15,10 @@ import productosVeterinaria.dominio.Veterinaria;
 
 public class Test {
 
+
 	@org.junit.Test
 	public void queSeCreeUnaProovedorYSeAgregueAProvincia() {
+		
 		Integer codigoProvincia = 21;
 		String nombreProvincia = "La Rioja";
 		Double valorImpuesto = 20.0;
@@ -24,14 +26,16 @@ public class Test {
 		String razonSocialProovedor = "Proovedor SA";
 		String domicilioProovedor = "Kiernan 222";
 		
+
 		Provincia nuevaProvincia = new Provincia(codigoProvincia, nombreProvincia,valorImpuesto);
 		Proovedor proovedor1 = new Proovedor(cuitProovedor, razonSocialProovedor, domicilioProovedor);
+
 		
 		nuevaProvincia.agregarProovedores(proovedor1);
 		
 		assertEquals(nuevaProvincia.getListaDeProovedores().size(), 1);
 	}
-	
+
 	@org.junit.Test
 	public void queSeValideElCuitDelProovedor() {
 		Long cuitProovedor = 20438613693l;
@@ -80,7 +84,7 @@ public class Test {
 	
 		
 	public void queSeCreeUnPerro() {
-		Perro perro = new Perro();
+		Perro perro = new Perro(null, null, null, null, null);
 	}
 
 	@org.junit.Test
@@ -104,4 +108,5 @@ public class Test {
 			
 	}
 	
+
 }
