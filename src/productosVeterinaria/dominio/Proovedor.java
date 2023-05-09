@@ -59,6 +59,12 @@ public class Proovedor {
 		}
 		return false;
 	}
+	
+	public void agregarTelefono(Telefono telefono) {
+		if(telefono.validarTelefono()) {
+			listaDeTelefonos.add(telefono);
+		}
+	}
 
 	@Override
 	public int hashCode() {
