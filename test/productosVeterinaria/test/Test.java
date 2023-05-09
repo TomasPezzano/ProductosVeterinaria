@@ -3,6 +3,7 @@ package productosVeterinaria.test;
 import static org.junit.Assert.*;
 import static org.junit.Test.*;
 
+import java.time.LocalDate;
 
 import productosVeterinaria.dominio.Producto;
 import productosVeterinaria.dominio.Gato;
@@ -13,6 +14,7 @@ import productosVeterinaria.dominio.PaisDeProcedencia;
 import productosVeterinaria.dominio.Proovedor;
 import productosVeterinaria.dominio.Provincia;
 import productosVeterinaria.dominio.Telefono;
+import productosVeterinaria.dominio.TipoDePelo;
 import productosVeterinaria.dominio.Veterinaria;
 
 public class Test {
@@ -155,9 +157,7 @@ public class Test {
 	}
 	
 		
-	public void queSeCreeUnPerro() {
-		Perro perro = new Perro(null, null, null, null, null);
-	}
+	
 
 	@org.junit.Test
 	public void queSeCreeUnTipoDeMordidaYSeAgregueAMordidas() {
@@ -179,6 +179,35 @@ public class Test {
 		Componente componente1 = new Componente(pais,f_vencimiento,analizado,cod_componente,descripcion);
 			
 	}
+	
+	@org.junit.Test
+	public void queSeValideLosDiasDeAntiguedadDelProductoTipoGato() {
+		Gato gato = new Gato(); 
+		long datoesperado=2;
+		
+		assertEquals(datoesperado, gato.getAntiguedad());
+			
+	}
+	
+	@org.junit.Test
+	public void queSeValideSiElPerroEsDeDeterminadoTipoDePelo() {
+		String nombreProducto="desinfectante";
+		Double precio = 20.0;
+		Integer codigo =2;
+		Mordida tipoMordida= new Mordida(1,"bite");
+		LocalDate fechaVenc= LocalDate.of(2023, 6, 20);
+		TipoDePelo tipoPelo= TipoDePelo.peloLiso;
+		
+		
+		Perro perro = new Perro(nombreProducto,precio,codigo,tipoMordida,fechaVenc,tipoPelo);
+		TipoDePelo peloEsperado=TipoDePelo.peloLiso;
+		
+		
+		
+		assertEquals(peloEsperado, perro.getTipoPelo());
+	}
+
+	
 	
 
 }
