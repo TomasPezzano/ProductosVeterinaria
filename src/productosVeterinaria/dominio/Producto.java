@@ -18,6 +18,10 @@ public class Producto {
 		this.fechaDeVencimiento = fechaDeVencimiento;
 		
 	}
+	
+	public Producto() {
+		
+	}
 
 	public String getNombre() {
 		return nombre;
