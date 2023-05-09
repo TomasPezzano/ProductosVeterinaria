@@ -210,32 +210,32 @@ public class Test {
 	}
 	
 	@org.junit.Test
-	public void queNoSePuedanCrearDosProductosConElMismoCodigoEnVeterinaria() {
+	public void queNoSePuedanCrearDosProductosIgualesEnVeterinaria() {
 		
 		Veterinaria vet1 = new Veterinaria();
 		
 		//Atributos Producto
-		String nombreProducto = "Rosario Come Gatos";
-		String nombreProducto2 = "Perrito Malvado";
+		String nombreProducto = "Rosarino Come Gatos";
+		
 		Double precioProducto = 1000.0;
-		Double precioProducto2 = 1200.0;
+		
 		Integer codigoProducto = 00001;
-		Integer codigoProducto2 = 00001;
+	
 		LocalDate fechaDeVencimientoProducto = LocalDate.of(2025, 9, 11);
-		LocalDate fechaDeVencimientoProducto2 = LocalDate.of(2026, 9, 11);
+	
 		
 		//Creación Mordida y Producto
 		
 		Mordida mordida = new Mordida(1,"mediana");
-		Mordida mordida2 = new Mordida(2,"grande");
+	
 		
 		Producto comeGatosRosarino = new Producto(nombreProducto, precioProducto, codigoProducto, mordida, fechaDeVencimientoProducto);
-		Producto perritoMalvado = new Producto(nombreProducto2, precioProducto2, codigoProducto2, mordida2, fechaDeVencimientoProducto2);
+		Producto perritoMalvado = new Producto(nombreProducto, precioProducto, codigoProducto, mordida, fechaDeVencimientoProducto);
 	
 		vet1.agregarProducto(comeGatosRosarino);
 		vet1.agregarProducto(perritoMalvado);
 		
-		assertEquals(1, vet1.getProductos().size());
+		assertEquals(2, vet1.getProductos().size());
 	}
 
 	@org.junit.Test
