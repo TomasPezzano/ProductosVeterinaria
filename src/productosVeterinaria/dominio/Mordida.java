@@ -1,5 +1,7 @@
 package productosVeterinaria.dominio;
 
+import java.util.Objects;
+
 public class Mordida {
 	private Integer id_mordida;
 	private String mordida;
@@ -29,6 +31,17 @@ public class Mordida {
 	public void setMordida(String mordida) {
 		this.mordida = mordida;
 	}
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id_mordida);
+	}
+
+
+	
+	
+	
 	
 	
 }

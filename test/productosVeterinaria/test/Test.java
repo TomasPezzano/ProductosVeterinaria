@@ -13,13 +13,15 @@ import productosVeterinaria.dominio.Mordida;
 import productosVeterinaria.dominio.PaisDeProcedencia;
 import productosVeterinaria.dominio.Proovedor;
 import productosVeterinaria.dominio.Provincia;
+import productosVeterinaria.dominio.Raza;
 import productosVeterinaria.dominio.Telefono;
 import productosVeterinaria.dominio.TipoDePelo;
 import productosVeterinaria.dominio.Veterinaria;
 
 public class Test {
 
-
+	// Test Proveedor 
+	
 	@org.junit.Test
 	public void queSeCreeUnaProovedorYSeAgregueAProvincia() {
 		
@@ -37,7 +39,7 @@ public class Test {
 		
 		nuevaProvincia.agregarProovedores(proovedor1);
 		
-		assertEquals(nuevaProvincia.getListaDeProovedores().size(), 1);
+		assertEquals(1, nuevaProvincia.getListaDeProovedores().size());
 	}
 	
 	@org.junit.Test
@@ -180,6 +182,109 @@ public class Test {
 			
 	}
 	
+
+	//Test Producto
+	
+	@org.junit.Test
+	public void queSePuedaAgregarUnProducto() {
+		Veterinaria vet = new Veterinaria();
+		
+		//Atributos Mordida
+		
+		Integer id_mordida = 1;
+		String mordida_tipo = "grande";
+		
+		//Atributos Producto
+		String nombreProducto = "Rosario Come Gatos";
+		Double precioProducto = 1000.0;
+		Integer codigoProducto = 00001;
+		LocalDate fechaDeVencimientoProducto = LocalDate.of(2025, 9, 11);
+		
+		//Creación Mordida y Producto
+		
+		Mordida mordida = new Mordida(id_mordida,mordida_tipo);
+		Producto comeGatosRosarino = new Producto(nombreProducto, precioProducto, codigoProducto, mordida, fechaDeVencimientoProducto);
+	
+		vet.agregarProducto(comeGatosRosarino);
+		
+		assertEquals(1, vet.getProductos().size());
+	}
+	
+	@org.junit.Test
+	public void queNoSePuedanCrearDosProductosIgualesEnVeterinaria() {
+		
+		Veterinaria vet1 = new Veterinaria();
+		
+		//Atributos Producto
+		String nombreProducto = "Rosarino Come Gatos";
+		
+		Double precioProducto = 1000.0;
+		
+		Integer codigoProducto = 00001;
+	
+		LocalDate fechaDeVencimientoProducto = LocalDate.of(2025, 9, 11);
+	
+		
+		//Creación Mordida y Producto
+		
+		Mordida mordida = new Mordida(1,"mediana");
+	
+		
+		Producto comeGatosRosarino = new Producto(nombreProducto, precioProducto, codigoProducto, mordida, fechaDeVencimientoProducto);
+		Producto perritoMalvado = new Producto(nombreProducto, precioProducto, codigoProducto, mordida, fechaDeVencimientoProducto);
+		
+		vet1.agregarProducto(comeGatosRosarino);
+		vet1.agregarProducto(perritoMalvado);
+		
+		assertEquals(1, vet1.getProductos().size());
+		
+		
+	}
+	
+	@org.junit.Test
+	public void validarQueSiUnProductoEstaVencidoNoSeAgregueAVeterinaria() {
+		
+		Veterinaria vet1 = new Veterinaria();
+		
+		//Atributos Producto
+		String nombreProducto = "Rosarino Come Gatos";
+		
+		Double precioProducto = 1000.0;
+		
+		Integer codigoProducto = 00001;
+	
+		LocalDate fechaDeVencimientoProducto = LocalDate.of(2022, 9, 11);
+		
+	
+		
+		//Creación Mordida y Producto
+		
+		Mordida mordida = new Mordida(1,"mediana");
+	
+		
+		Producto comeGatosRosarino = new Producto(nombreProducto, precioProducto, codigoProducto, mordida, fechaDeVencimientoProducto);
+	
+		assertFalse(vet1.agregarProducto(comeGatosRosarino));
+		
+
+	}
+	
+	@org.junit.Test
+	public void queSePuedaValidarElTipodeMordidaDeUnPerro() {
+		Mordida mordida = new Mordida(1,"");
+		
+		LocalDate fechaDeVencimientoProducto = LocalDate.of(2022, 9, 11);
+		Perro perritoMalvado = new Perro("Tomy", 100.0, 0001, mordida , fechaDeVencimientoProducto , TipoDePelo.peloDuro, Raza.MEDIANA);
+		
+		perritoMalvado.validarMordida();
+		
+		Mordida mordidaAEvaluar = perritoMalvado.getTipoMordida();
+		
+		assertEquals(mordidaAEvaluar.getMordida(), "Mediana");
+	}
+	
+	
+
 	@org.junit.Test
 	public void queSeValideLosDiasDeAntiguedadDelProductoTipoGato() {
 		Gato gato = new Gato(); 
@@ -199,12 +304,13 @@ public class Test {
 		TipoDePelo tipoPelo= TipoDePelo.peloLiso;
 		
 		
-		Perro perro = new Perro(nombreProducto,precio,codigo,tipoMordida,fechaVenc,tipoPelo);
+		Perro perro = new Perro(nombreProducto,precio,codigo,tipoMordida,fechaVenc,tipoPelo, Raza.GRANDE);
 		TipoDePelo peloEsperado=TipoDePelo.peloLiso;
 		
 		
 		
 		assertEquals(peloEsperado, perro.getTipoPelo());
+
 	}
 
 	
